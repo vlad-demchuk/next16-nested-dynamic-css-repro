@@ -28,6 +28,7 @@ contains each module's class name and reports whether that chunk is linked.
 | 16.3.4, Turbopack        | yes (`data-precedence="dynamic"`) | **no**                      |
 | 16.3.4, `next build --webpack` | yes                      | yes                            |
 | 16.0.11, Turbopack       | yes                            | yes                            |
+| 16.4.0-canary.34, Turbopack | yes                         | **no**                         |
 
 So on the same Next version the webpack build links both stylesheets and the Turbopack build links
 only the first level, and the Turbopack build did link both on 16.0.x.
@@ -45,4 +46,4 @@ npm i next@16.0.11     && npm run build && npm run check
 npm i next@16.3.4      && npm run build && npm run check
 ```
 
-Reproduces on 16.1.0 through 16.3.5; clean on 16.0.x.
+Reproduces on 16.1.0 through 16.3.5 and on 16.4.0-canary.34; clean on 16.0.x.
