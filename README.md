@@ -21,6 +21,28 @@ npm run check
 `check.mjs` reads the prerendered HTML, lists its stylesheet links, then locates the CSS chunk that
 contains each module's class name and reports whether that chunk is linked.
 
+## Manual check in a browser
+
+```bash
+npx next start -p 3200
+```
+
+Open http://localhost:3200 and use **view-source** (not the Elements panel — by the time you look at
+the DOM, hydration has already inserted the missing link). The server HTML contains exactly one
+`<link rel="stylesheet">`, the level-1 one.
+
+To see the shift itself, throttle the network (DevTools -> Network -> Slow 3G) and hard-reload: the
+two columns first stack full width, then snap to 62% / 38% once the level-2 stylesheet arrives. On
+an unthrottled localhost the chunk is a few hundred bytes, so the flash is too quick to catch.
+
+Without a browser:
+
+```bash
+curl -s localhost:3200 | grep -o '<link rel="stylesheet"[^>]*>'
+```
+
+Running the same page off `next build --webpack` shows two stylesheet links and no shift.
+
 ## Results
 
 | build                    | level 1 CSS linked in SSR HTML | level 2 CSS linked in SSR HTML |
