@@ -1,0 +1,14 @@
+{
+  "name": "next16-nested-dynamic-css-repro",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "build:webpack": "next build --webpack",
+    "check": "node check.mjs"
+  },
+  "dependencies": {
+    "next": "^16.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

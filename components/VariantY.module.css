@@ -1,0 +1,14 @@
+.levelTwoGrid {
+  display: flex;
+  gap: 16px;
+}
+
+.levelTwoLeft {
+  flex: 0 0 62%;
+  background: #eef;
+}
+
+.levelTwoRight {
+  flex: 0 0 38%;
+  background: #fee;
+}
